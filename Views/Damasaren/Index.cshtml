@@ -4,22 +4,35 @@
 }
 
 <div id="content">
+  <form method="post" enctype="multipart/form-data" asp-controller="Damasaren" asp-action="OnPost" name="postform">         
   <table width="100%">
-    <br>
     <tr>
-      <td><h1 style="font-weight:500;">振り込め詐欺音声診断アプリ   ---ダマサレン---</h1></td>
-      <img src="Pages\logo.png" alt = "logo">
-      </tr>
-
+        <td style="height:20px">
+          <!-- blank --> 
+        </td>
+    </tr>
     <tr>
-        <td><br>
-              <form method="post" enctype="multipart/form-data" asp-controller="Damasaren" asp-action="OnPost">         
-                <input type="file" name="uploadFile" />
-                <input type="submit" value="詐欺診断開始" />
-             </form>
+        <td>
+          <label for="uploadFile" class="button" >
+              音声を選択する
+              <input type="file"  name="uploadFile"  id="uploadFile" style="display:none"/>
+          </label>
+        </td>
+        <td style="align:center">
+          <img src="/images/arrow.png" style="width:80%;height:80%;"/>
+        </td>
+        <td>
+          <a href= "#" class="button" onclick="javascript:postform.submit()">詐欺判定する</a>
+        </td>
+        <td style="align:center">
+          <img src="/images/arrow.png" style="width:80%;height:80%;"/>
+        </td>
+        <td>
+          <a href= "#" class="buttonRed">警察に相談する</a>
         </td>
     </tr>
   </table>
+  </form>
 
   <br>
    <table>
@@ -38,7 +51,7 @@
      <tr>
       <td></td>
       <td></td>
-      <td align="right" valign="top"><button type="button" name="report" value="report"><font size="5">警察に相談</font></button></td>
+      <td align="right" valign="top"></td>
     </tr>
   </table>
 </div>
