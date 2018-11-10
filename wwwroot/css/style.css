@@ -1,0 +1,66 @@
+.button {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 15px 30px;
+    border: 1px solid #274798;
+    border-radius: 8px;
+    background: #654aff;
+    background: -webkit-gradient(linear, left top, left bottom, from(#654aff), to(#274798));
+    background: -moz-linear-gradient(top, #654aff, #274798);
+    background: linear-gradient(to bottom, #654aff, #274798);
+    text-shadow: #172a5a 3px 1px 1px;
+    font: normal normal bold 30px verdana;
+    color: #ffffff;
+    text-decoration: none;
+}
+.button:hover,
+.button:focus {
+    border: 1px solid #2e54b3;
+    background: #7959ff;
+    background: -webkit-gradient(linear, left top, left bottom, from(#7959ff), to(#2f55b6));
+    background: -moz-linear-gradient(top, #7959ff, #2f55b6);
+    background: linear-gradient(to bottom, #7959ff, #2f55b6);
+    color: #ffffff;
+    text-decoration: none;
+}
+.button:active {
+    background: #3d2c99;
+    background: -webkit-gradient(linear, left top, left bottom, from(#3d2c99), to(#274798));
+    background: -moz-linear-gradient(top, #3d2c99, #274798);
+    background: linear-gradient(to bottom, #3d2c99, #274798);
+}
+
+/*==========================*/
+.buttonRed {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 15px 30px;
+    border: 1px solid #982727;
+    border-radius: 8px;
+    background: #ff4a4a;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ff4a4a), to(#982727));
+    background: -moz-linear-gradient(top, #ff4a4a, #982727);
+    background: linear-gradient(to bottom, #ff4a4a, #982727);
+    text-shadow: #5a1717 3px 1px 1px;
+    font: normal normal bold 30px verdana;
+    color: #ffffff;
+    text-decoration: none;
+}
+.buttonRed:hover,
+.buttonRed:focus {
+    border: 1px solid #b32e2e;
+    background: #ff5959;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ff5959), to(#b62f2f));
+    background: -moz-linear-gradient(top, #ff5959, #b62f2f);
+    background: linear-gradient(to bottom, #ff5959, #b62f2f);
+    color: #ffffff;
+    text-decoration: none;
+}
+.buttonRed:active {
+    background: #982727;
+    background: -webkit-gradient(linear, left top, left bottom, from(#982727), to(#982727));
+    background: -moz-linear-gradient(top, #982727, #982727);
+    background: linear-gradient(to bottom, #982727, #982727);
+}
