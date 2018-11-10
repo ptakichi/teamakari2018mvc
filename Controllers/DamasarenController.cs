@@ -41,10 +41,10 @@ namespace teamakari2018mvc.Controllers
                     uploadFile.CopyToAsync(stream).Wait();
                 }
 
-                String resultMessage = "";
+                // String resultMessage = "";
                 Anaryze an = new Anaryze();
-                an.TranslationWithFileAsync( uploadfilePath,resultMessage).Wait();
-                model.resultMessage = resultMessage;
+                Task<String> task = an.TranslationWithFileAsync(uploadfilePath);
+                model.resultMessage = task.Result;
 
             }
 

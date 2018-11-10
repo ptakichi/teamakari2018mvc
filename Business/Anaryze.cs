@@ -18,9 +18,10 @@ namespace teamakari2018mvc.Business
 
     public class Anaryze {
         // Translation using file input.
-        public async Task TranslationWithFileAsync(string uploadfilePath,string resultMessage)
+        public async Task<String> TranslationWithFileAsync(string uploadfilePath)
         {
 
+            String result = "";
             
             // <TranslationWithFileAsync>
             // Translation source language.
@@ -64,8 +65,9 @@ namespace teamakari2018mvc.Business
                     recognizer.Recognized += (s, e) => {
                         if (e.Result.Reason == ResultReason.TranslatedSpeech)
                         {
-                            Console.WriteLine($"RECOGNIZED in '{fromLanguage}': Text={e.Result.Text}");
-                            resultMessage += e.Result.Text + "\n";
+                            result += e.Result.Text;
+                            Console.WriteLine($"RECOGNIZED in '{fromLanguage}': Text={result}");
+                            // Console.WriteLine($"RECOGNIZED in '{fromLanguage}': Text={e.Result.Text}");
                             foreach (var element in e.Result.Translations)
                             {
                                 Console.WriteLine($"    TRANSLATED into '{element.Key}': {element.Value}");
@@ -73,7 +75,7 @@ namespace teamakari2018mvc.Business
                         }
                         else if (e.Result.Reason == ResultReason.RecognizedSpeech)
                         {
-                            resultMessage += e.Result.Text + "\n";
+                            result += e.Result.Text;
                             Console.WriteLine($"RECOGNIZED: Text={e.Result.Text}");
                             Console.WriteLine($"    Speech not translated.");
                         }
@@ -128,6 +130,7 @@ namespace teamakari2018mvc.Business
                 }
             }
             // </TranslationWithFileAsync>
+            return result;
         }
     }
 }
