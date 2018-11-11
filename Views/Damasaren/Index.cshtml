@@ -36,30 +36,30 @@
   </table>
   </form>
 
-   <table table width="100%" >
+   <table table width="1200px" >
     <tr>
       <td style="height:30px"></td>
     </tr>
     <tr>
       
-      <td><div id="phraseDiv" style="display: inline-block;width:300px;height:300px">@Model.resultMessage</div></td>
-        <td width="300px">
+      <td style="width:400px;height:300px;font-size:1.2em;margin:30px 50px;">@Model.resultMessage</div></td>
+      <td style="width:400px;text-align:center;margin:30px 50px;">
           <!-- <textarea id="keyPrase" style="display: inline-block;width:500px;height:300px"> -->
             @foreach(DangerData p in @Model.keyPhrases)
             {
               @if(@p.dangerRitsu > 80){
-                <p style="width:100px;background-color:#ff4a4a;color:white;font-size:2.5em;padding-left:10px;font-weight:bold">@p.dangerPhrase</p>
+                <p style="width:200px;background-color:#ff4a4a;color:white;font-size:2.5em;margin-left:50px;font-weight:bold">@p.dangerPhrase</p>
               }else if(@p.dangerRitsu <= 80 && @p.dangerRitsu > 50){
-                <p style="width:100px;background-color:yellow;font-size:2.0em;padding-left:10px">@p.dangerPhrase</p>
+                <p style="width:200px;background-color:yellow;font-size:2.0em;margin-left:50px">@p.dangerPhrase</p>
               }else{
-                <p style="width:100px;font-size:1.0em;padding-left:10px">@p.dangerPhrase</p>
+                <p style="width:200px;font-size:1.0em;margin-left:50px">@p.dangerPhrase</p>
               }
 
             }
           
           <!-- </textarea> -->
         </td>
-        <td style="text-align:center">
+        <td style="width:400px;text-align:center">
             @if(@Model.displaykbn == 3){
               <img src="/images/kiken.png" style="width:50%;height:50%;"/>
             }else if(@Model.displaykbn == 2){

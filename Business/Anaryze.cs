@@ -32,6 +32,9 @@ namespace teamakari2018mvc.Business
             dangerDatas.Add(new DangerData("振込",100));
             dangerDatas.Add(new DangerData("弁護士",100));
             dangerDatas.Add(new DangerData("やり方",80));
+            dangerDatas.Add(new DangerData("連帯保証人",100));
+            dangerDatas.Add(new DangerData("立て替え",100));
+            
         }
 
         // Translation using file input.
