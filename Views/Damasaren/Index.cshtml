@@ -1,4 +1,5 @@
-﻿@model DamasarenModel
+﻿@using teamakari2018mvc.Business
+@model DamasarenModel
 @{
     ViewData["Title"] = "Home page";
 }
@@ -8,7 +9,7 @@
            
   <table width="100%">
     <tr>
-        <td style="height:20px">
+        <td style="height:50px">
           <!-- blank --> 
         </td>
     </tr>
@@ -19,14 +20,14 @@
               <input type="file"  name="uploadFile"  id="uploadFile" style="display:none"/>
           </label>
         </td>
-        <td style="align:center">
-          <img src="/images/arrow.png" style="width:80%;height:80%;"/>
+        <td style="text-align:center">
+          <img src="/images/arrow.png" style="width:60%;height:60%;"/>
         </td>
         <td>
           <a href= "#" class="button" onclick="javascript:postform.submit()">詐欺判定する</a>
         </td>
-        <td style="align:center">
-          <img src="/images/arrow.png" style="width:80%;height:80%;"/>
+        <td style="text-align:center">
+          <img src="/images/arrow.png" style="width:60%;height:60%;"/>
         </td>
         <td>
           <a href= "#" class="buttonRed">警察に相談する</a>
@@ -35,24 +36,39 @@
   </table>
   </form>
 
-  <br>
-   <table>
+   <table table width="100%" >
     <tr>
-      <td valign="top">音声内容</td>
-      <td></td>
-      <td valign="top">主なキーフレーズ</td>
+      <td style="height:30px"></td>
     </tr>
-    
     <tr>
-      <td><textarea id="phraseDiv" style="display: inline-block;width:500px;height:300px">@Model.resultMessage</textarea></td>
-      <td width="30Px"></td>
-      <td valign="top">
-        <!-- <textarea id="keyPrase" style="display: inline-block;width:500px;height:300px"> -->
-        @foreach(var p in @Model.keyPhrases)
-        {
-          <p>@p.dangerPhrase</p>
-        }
-        <!-- </textarea> -->
+      
+      <td><div id="phraseDiv" style="display: inline-block;width:300px;height:300px">@Model.resultMessage</div></td>
+        <td width="300px">
+          <!-- <textarea id="keyPrase" style="display: inline-block;width:500px;height:300px"> -->
+            @foreach(DangerData p in @Model.keyPhrases)
+            {
+              @if(@p.dangerRitsu > 80){
+                <p style="width:100px;background-color:#ff4a4a;color:white;font-size:2.5em;padding-left:10px;font-weight:bold">@p.dangerPhrase</p>
+              }else if(@p.dangerRitsu <= 80 && @p.dangerRitsu > 50){
+                <p style="width:100px;background-color:yellow;font-size:2.0em;padding-left:10px">@p.dangerPhrase</p>
+              }else{
+                <p style="width:100px;font-size:1.0em;padding-left:10px">@p.dangerPhrase</p>
+              }
+
+            }
+          
+          <!-- </textarea> -->
+        </td>
+        <td style="text-align:center">
+            @if(@Model.displaykbn == 3){
+              <img src="/images/kiken.png" style="width:50%;height:50%;"/>
+            }else if(@Model.displaykbn == 2){
+              <img src="/images/tyuui.png" style="width:50%;height:50%;"/>
+            }else if(@Model.displaykbn == 1){
+              <img src="/images/anzen.png" style="width:50%;height:50%;"/>
+            }
+        </td>
+      
     </tr>
 
      <tr>

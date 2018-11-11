@@ -56,9 +56,19 @@ namespace teamakari2018mvc.Controllers
                 //フレーズ一致かどうか
                 List<DangerData> danger = an.JudgeData( d.documents[0].keyPhrases);
                 model.keyPhrases = danger;
-            }
 
-            return View("Index",model);
+                int dangercount =  danger.Count(x => x.dangerRitsu >= 80);
+                if(dangercount > 3){
+                    model.displaykbn = 3;//警告
+
+                }else if(dangercount > 1){
+                    model.displaykbn = 2;//注意
+
+                }else
+                    model.displaykbn = 1;//安全
+                }
+
+                return View("Index",model);
 
         }
     }
