@@ -9,6 +9,8 @@ using teamakari2018mvc.Business;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 
+
+
 namespace teamakari2018mvc.Controllers
 {
     public class DamasarenController : Controller
@@ -41,17 +43,23 @@ namespace teamakari2018mvc.Controllers
                     uploadFile.CopyToAsync(stream).Wait();
                 }
 
-                // String resultMessage = "";
                 Anaryze an = new Anaryze();
+                //音声からテキスト
                 Task<String> task = an.TranslationWithFileAsync(uploadfilePath);
                 model.resultMessage = task.Result;
 
+                //テキストからキーフレーズ
+                Task<Document> result = an.Translate(task.Result);
+                Document d = result.Result;
+                // model.keyPhrases = d.documents[0].keyPhrases;
+
+                //フレーズ一致かどうか
+                List<DangerData> danger = an.JudgeData( d.documents[0].keyPhrases);
+                model.keyPhrases = danger;
             }
 
             return View("Index",model);
 
         }
-
-
     }
 }

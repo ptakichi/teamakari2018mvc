@@ -4,7 +4,8 @@
 }
 
 <div id="content">
-  <form method="post" enctype="multipart/form-data" asp-controller="Damasaren" asp-action="OnPost" name="postform">         
+  <form method="post" enctype="multipart/form-data" asp-controller="Damasaren" asp-action="OnPost" name="postform">
+           
   <table width="100%">
     <tr>
         <td style="height:20px">
@@ -44,8 +45,14 @@
     
     <tr>
       <td><textarea id="phraseDiv" style="display: inline-block;width:500px;height:300px">@Model.resultMessage</textarea></td>
-      <td>　　　　　　</td>
-      <td valign="top"><textarea id="keyPrase" style="display: inline-block;width:500px;height:300px"></textarea>
+      <td width="30Px"></td>
+      <td valign="top">
+        <!-- <textarea id="keyPrase" style="display: inline-block;width:500px;height:300px"> -->
+        @foreach(var p in @Model.keyPhrases)
+        {
+          <p>@p.dangerPhrase</p>
+        }
+        <!-- </textarea> -->
     </tr>
 
      <tr>
